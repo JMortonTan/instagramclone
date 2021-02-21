@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e != null) {
+                    Toast.makeText(LoginActivity.this,"Login failed! " + e.getMessage(),Toast.LENGTH_LONG).show();
                     Log.e(TAG, "Issue with login", e);
                     return;
                 }

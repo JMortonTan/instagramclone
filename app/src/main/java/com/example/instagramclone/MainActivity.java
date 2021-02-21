@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
 
+    private TextView tvGreeting;
     private EditText etDescription;
     private Button btnCaptureImage;
     private ImageView ivPostImage;
@@ -46,11 +48,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tvGreeting = findViewById(R.id.tvGreeting);
         etDescription = findViewById(R.id.etDescription);
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnLogout = findViewById(R.id.btnLogout);
+
+        tvGreeting.setText("Hello! " + ParseUser.getCurrentUser().getUsername());
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
